@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Newslettercontroller;
+use App\Http\Controllers\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [Newslettercontroller::class, 'index']);
 Route::post('/subscribe', [Newslettercontroller::class, 'subscribe']);
+Route::resource('product', Product::class);

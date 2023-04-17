@@ -22,4 +22,8 @@ class Newslettercontroller extends Controller
         event(new UserSubscribed($request->input('email')));
         return back();
     }
+ 
+
+
+
 }
