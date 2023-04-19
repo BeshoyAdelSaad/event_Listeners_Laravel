@@ -13,13 +13,16 @@ use Illuminate\Queue\SerializesModels;
 class SetPriceProduct
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
+    
+    public $price;
+    public $email;
     /**
      * Create a new event instance.
      */
-    public function __construct()
+    public function __construct($price, $email)
     {
-        //
+        $this->price = $price;
+        $this->email = $email;
     }
 
     /**

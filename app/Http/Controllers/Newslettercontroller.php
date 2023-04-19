@@ -16,8 +16,9 @@ class Newslettercontroller extends Controller
     public function subscribe(Request $request)
     {
         $request->validate([
-           'email' => 'required|unique:newsletter,email' 
+           'email' => 'required' 
         ]);   
+        
         
         event(new UserSubscribed($request->input('email')));
         return back();

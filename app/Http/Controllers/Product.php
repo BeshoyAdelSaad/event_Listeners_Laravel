@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\SetPriceProduct;
 use App\Models\Orders;
 use Illuminate\Http\Request;
 
@@ -42,7 +43,9 @@ class Product extends Controller
             'price_product4' => 'required'
         ]);
 
+        $price = $request->price_product1 + $request->price_product2 + $request->price_product3 + $request->price_product4;
         Orders::create($request->post());
+        event(new SetPriceProduct($price, 'Besho@gmail.com'));
         $data = Orders::all();
         return view('product.index', compact('data'));        
     }

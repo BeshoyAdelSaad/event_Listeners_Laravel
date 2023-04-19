@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Events\SetPriceProduct;
 use App\Events\UserSubscribed;
 use App\Listeners\EmailOwnerAboutSubscription;
+use App\Listeners\SetPricelistener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -20,9 +22,12 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        UserSubscribed::class => [
-          EmailOwnerAboutSubscription::class  
-        ],
+        // UserSubscribed::class => [
+        //   EmailOwnerAboutSubscription::class  
+        // ],
+        // SetPriceProduct::class => [
+        //     SetPricelistener::class
+        // ],
     ];
 
     /**
